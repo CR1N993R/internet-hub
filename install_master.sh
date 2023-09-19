@@ -12,7 +12,7 @@ cp ./config/blackbox_exporter/blackbox.yml /usr/share/blackbox_exporter-0.24.0.l
 curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash
 apt install speedtest
 chmod +x binaries/speedtest_exporter
-cp ./binaries/speedtest-exporter /usr/bin/
+cp ./binaries/speedtest_exporter /usr/bin/
 
 # Grafana Postgres Service
 mkdir /usr/share/grafana-postgres-service
