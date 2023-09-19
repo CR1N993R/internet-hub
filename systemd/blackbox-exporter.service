@@ -3,8 +3,8 @@ Description=pinging for internet monitoring
 
 [Service]
 User=root
-WorkingDirectory=/usr/share/blackbox-exporter/
-ExecStart=/usr/share/blackbox-exporter/blackbox_exporter
+WorkingDirectory=/usr/share/blackbox_exporter-0.24.0.linux-arm64/
+ExecStart=/usr/share/blackbox_exporter-0.24.0.linux-arm64/blackbox_exporter
 
 [Install]
 WantedBy=multi-user.target

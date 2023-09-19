@@ -4,17 +4,21 @@
 cp ./systemd/* /etc/systemd/system/
 
 # Blackbox Exporter
+wget https://github.com/prometheus/blackbox_exporter/releases/download/v0.24.0/blackbox_exporter-0.24.0.linux-arm64.tar.gz
 mkdir /usr/share/blackbox-exporter
-cp ./binaries/arm64/blackbox_exporter /usr/share/blackbox-exporter/
+tar -zxvf blackbox_exporter-0.24.0.linux-arm64.tar.gz -C /usr/share/
 cp ./config/blackbox_exporter/blackbox.yml /usr/share/blackbox-exporter/
 
 # Speedtest
-cp ./binaries/arm64/speedtest /usr/bin/
-cp ./binaries/arm64/speedtest-exporter /usr/bin/
+curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash
+apt install speedtest
+chmod +x binaries/speedtest_exporter
+cp ./binaries/speedtest-exporter /usr/bin/
 
 # Grafana Postrges Service
 mkdir /usr/share/grafana-postgres-service
-cp ./binaries/arm64/grafana_postgres_service /usr/share/grafana-postgres-service/
+chmod +x binaries/grafana_postgres_service
+cp ./binaries/grafana_postgres_service /usr/share/grafana-postgres-service/
 cp ./config/grafana_postgres_service/.env /usr/share/grafana-postgres-service/
 
 # Prometheus
@@ -23,8 +27,9 @@ tar -zxvf prometheus-2.47.0.linux-amd64.tar.gz -C /usr/share/
 cp ./config/prometheus/* /usr/share/prometheus-2.47.0.linux-arm64/
 
 # Grafana
-wget https://dl.grafana.com/oss/release/grafana-10.1.1.linux-arm64.tar.gz
-tar -zxvf grafana-10.1.1.linux-amd64.tar.gz -C /usr/share/
+apt install -y adduser libfontconfig1 musl
+wget https://dl.grafana.com/enterprise/release/grafana-enterprise_10.1.2_arm64.deb
+dpkg -i grafana-enterprise_10.1.2_arm64.deb
 
 # Pihole
 curl -sSL https://install.pi-hole.net | bash
