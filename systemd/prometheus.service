@@ -1,0 +1,10 @@
+[Unit]
+Description=data collecter for internet monitoring
+
+[Service]
+User=root
+WorkingDirectory=/usr/share/prometheus
+ExecStart=/usr/share/prometheus-2.47.0.linux-arm64/prometheus
+
+[Install]
+WantedBy=multi-user.target

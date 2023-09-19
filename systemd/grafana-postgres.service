@@ -1,0 +1,13 @@
+[Unit]
+Description=webhook for ttn
+Requires=postgresql.service
+After=postgresql.service
+
+[Service]
+User=root
+WorkingDirectory=/usr/share/grafana-postgres-service/
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/share/grafana-postgres-service/grafana_postgres_service
+
+[Install]
+WantedBy=multi-user.target
