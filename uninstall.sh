@@ -16,7 +16,7 @@ systemctl daemon-reload
 rm -rf /usr/share/blackbox_exporter-0.24.0.linux-arm64
 
 # Remove Speedtest
-rm /usr/bin/speedtest-exporter
+rm /usr/bin/speedtest_exporter
 apt purge speedtest
 
 # Remove Grafana Postgres Service

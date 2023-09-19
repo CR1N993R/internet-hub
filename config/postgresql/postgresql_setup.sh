@@ -9,6 +9,9 @@ sudo apt install -y postgresql
 # Change the PostgreSQL password for the 'postgres' user
 sudo -u postgres psql -c "ALTER USER postgres PASSWORD KH4?CKCSGTsKxSxy;"
 
+# Create Database for grafana_postgres_service
+sudo -u postgres psql -c "CREATE DATABASE grafana_postgres_service;"
+
 # Edit PostgreSQL configuration
 sudo sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/" /etc/postgresql/*/main/postgresql.conf
 
