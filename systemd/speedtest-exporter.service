@@ -4,7 +4,7 @@ Description=meassures internet speed via ookla
 [Service]
 User=root
 WorkingDirectory=/usr/bin/
-ExecStart=python3 /usr/bin/speedtest_exporter
+ExecStart=/usr/bin/speedtest_exporter
 
 [Install]
 WantedBy=multi-user.target
