@@ -1,4 +1,5 @@
 #!/bin/bash
+apt install curl wget
 
 # Copy Systemd services
 cp ./systemd/* /etc/systemd/system/
@@ -46,9 +47,5 @@ systemctl enable prometheus.service
 systemctl enable speedtest-exporter.service
 systemctl enable grafana.service
 
-# Start Services
-systemctl start blackbox-exporter.service
-systemctl start grafana-postgres.service
-systemctl start prometheus.service
-systemctl start speedtest-exporter.service
-systemctl start grafana.service
+# Restart
+shutdown -r 0

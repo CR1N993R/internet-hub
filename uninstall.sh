@@ -17,7 +17,7 @@ rm -rf /usr/share/blackbox_exporter-0.24.0.linux-arm64
 
 # Remove Speedtest
 rm /usr/bin/speedtest_exporter
-apt purge speedtest
+apt purge speedtest -y
 
 # Remove Grafana Postgres Service
 rm -rf /usr/share/grafana-postgres-service
@@ -26,10 +26,13 @@ rm -rf /usr/share/grafana-postgres-service
 rm -rf /usr/share/prometheus-2.47.0.linux-arm64
 
 # Remove Grafana
-dpkg -r grafana
+dpkg -P grafana
 
 # Remove PiHole
 pihole uninstall
 
 # Remove Postgres
-apt purge postgresql
+apt purge postgresql -y
+
+#Restart
+shutdown -r 0
